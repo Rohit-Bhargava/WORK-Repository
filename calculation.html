@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <title>
+            exercise
+        </title>
+        <script type="text/javascript">
+        var a, b;
+        function add() {
+        a= document.getElementById('inp1').value;
+        b= document.getElementById('inp2').value;
+        document.getElementById("inp0").value= a+ b;    
+            
+        }
+        function plush() {
+           
+           
+        a= document.getElementById('inp1').value;
+        b= document.getElementById('inp2').value;
+        document.getElementById("inp3").value= +a + +b;
+/*  [ if we want to treat them as a numbers, we need to convert and then sum them ]
+let apples = "2";
+let oranges = "3";
+// both values converted to numbers before the binary plus
+alert( +apples + +oranges ); // 5
+// the longer variant
+// alert( Number(apples) + Number(oranges) ); // 5
+*/      
+}
+function subtract(){
+    a= document.getElementById('inp1').value;
+    b= document.getElementById('inp2').value;
+    document.getElementById("inp4").value= a-b;
+}
+function multiply(){
+    a= document.getElementById('inp1').value;
+    b= document.getElementById('inp2').value;
+    document.getElementById("inp5").value= a*b;
+}
+function divition(){
+    a= document.getElementById('inp1').value;
+    b= document.getElementById('inp2').value;
+    document.getElementById("inp6").value= a/b;
+}
+function reminder(){
+    a= document.getElementById('inp1').value;
+    b= document.getElementById('inp2').value;
+    document.getElementById("inp7").value= a%b;
+}
+function Exoponentiation(){
+    a= document.getElementById('inp1').value;
+    b= document.getElementById('inp2').value;
+    document.getElementById("inp8").value= a**b;
+}
+
+        </script>     
+    </head>
+    <body>
+       Number 1 = <input id="inp1"></input>
+      Number 2 = <input id="inp2" >  </input><br><br>
+        <button id="btn0" onclick="add()"> add </button>
+        <input id="inp0" ></input><font color="red">  a+b=ab</font><br><br>
+        <button id="btn1" onclick="plush()"> sum </button>
+        <input id="inp3" ></input><font color="red">  +a + +b = a+b</font><br><br>
+        <button id="btn2" onclick="subtract()"> minus </button>
+        <input id="inp4" ></input><font color="red">  a-b</font><br><br>
+        <button id="btn3" onclick="multiply()"> maltiply </button>
+        <input id="inp5" ></input><font color="red">  a*b</font><br><br>
+        <button id="btn4" onclick="divition()"> devide </button>
+        <input id="inp6" ></input><font color="red">  a/b</font><br><br>
+        <button id="btn5" onclick="reminder()"> reminder </button>
+        <input id="inp7" ></input><font color="red">  a%b=reminder</font><br><br>
+        <button id="btn6" onclick="Exoponentiation()">Exoponentiation</button>
+        <input id="inp8" ></input><font color="red">  a**b = a to the power b</font>
+    </body>
+</html>
