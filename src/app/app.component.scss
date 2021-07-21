@@ -6,10 +6,19 @@
     height: 100%;
   }
   .example-sidenav {
-    padding: 20px;
+    padding: 200px;
   }
   .example-card {
     max-width: 400px;
+  }
+  
+  .example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
   }
   
   
