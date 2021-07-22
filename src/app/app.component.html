@@ -1,49 +1,18 @@
-<div class="header">
-  <mat-toolbar color="primary">
-    <button mat-icon-button (click)="drawer.toggle()" class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span>My App</span>
-    <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>share</mat-icon>
-    </button>
-    <button mat-icon-button>
-      <mat-icon>account_circle</mat-icon>
-    </button>
-  </mat-toolbar>
-</div>
+<app-header (click)="drawer.toggle()"></app-header>
   <mat-drawer-container class="example-container">
     <mat-drawer #drawer class="example-sidenav" mode="over">
+      <mat-drawer-content>
+        <mat-nav-list>
+          <a mat-list-item routerLink="/home" routerLinkActivate="active" role="navigation">Home</a>
+          <a mat-list-item routerLink="/second" routerLinkActivate="active" role="navigation" >Form</a>
+        </mat-nav-list>
+      </mat-drawer-content>
     </mat-drawer>
-
-    <mat-card class="example-card">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Shiba Inu</mat-card-title>
-        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-        <p>
-          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-          bred for hunting.
-        </p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-raised-button color="primary">LIKE</button>
-        <button mat-raised-button color="accent">SHARE</button>
-      </mat-card-actions>
-
-    </mat-card>
+    <mat-drawer-content>
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
     
-
 </mat-drawer-container>
-
 
 
 
