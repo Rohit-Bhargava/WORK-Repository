@@ -1,21 +1,40 @@
-<app-header (click)="drawer.toggle()"></app-header>
-  <mat-drawer-container class="example-container">
-    <mat-drawer #drawer class="example-sidenav" mode="over">
-      <mat-drawer-content>
-        <mat-nav-list>
-          <a mat-list-item routerLink="/home" routerLinkActivate="active" role="navigation">Home</a>
-          <a mat-list-item routerLink="/second" routerLinkActivate="active" role="navigation" >Form</a>
-        </mat-nav-list>
-      </mat-drawer-content>
-    </mat-drawer>
+<mat-toolbar color="primary">
+  <button mat-icon-button class="manu-icon" aria-label="Example icon-button with menu icon" (click)="drawer.toggle()">
+    <mat-icon>menu</mat-icon>&nbsp;
+  </button>
+  <span>My App</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>share</mat-icon>
+  </button>
+  <button mat-icon-button id="account" class="example-icon" aria-label="Example icon-button with account icon">
+  </button>
+</mat-toolbar>
+<mat-drawer-container class="example-container">
+  <mat-drawer #drawer class="example-sidenav" mode="over">
     <mat-drawer-content>
-      <router-outlet></router-outlet>
+      <mat-nav-list>
+        <a
+          mat-list-item
+          routerLink="/home"
+          routerLinkActivate="active"
+          role="navigation"
+          >Home</a
+        >
+        <a
+          mat-list-item
+          routerLink="/second"
+          routerLinkActivate="active"
+          role="navigation"
+          >Form</a
+        >
+      </mat-nav-list>
     </mat-drawer-content>
-    
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
 </mat-drawer-container>
-
-
-
- 
-
-
