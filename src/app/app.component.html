@@ -1,0 +1,24 @@
+<!-- <app-header></app-header> -->
+<div>
+  <mat-toolbar color="primary">
+      <button type="button" mat-button (click)="drawer.toggle()">
+         <mat-icon>menu</mat-icon>
+        </button>&nbsp;&nbsp;
+    <span>MYSTUDY APP</span>
+    
+  </mat-toolbar>
+</div>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+<div class="btn-side-nav">
+  <button mat-raised-button class="side-btn" routerLink="/" routerLinkActive="active">Home</button><br>
+  <button mat-raised-button class="side-btn" routerLink="/form" routerLinkActive="active">Form</button><br>
+  <button mat-raised-button class="side-btn" routerLink="/list" routerLinkActive="active">List</button><br>
+  <button mat-raised-button class="side-btn">Upload</button>
+  <button mat-raised-button class="side-btn" (click)="logout()" *ngIf="token">Logout</button>
+
+</div>  
+  </mat-drawer>
+  <router-outlet *ngIf="token"></router-outlet>
+</mat-drawer-container>
+

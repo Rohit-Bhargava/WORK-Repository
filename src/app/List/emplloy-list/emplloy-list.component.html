@@ -1,0 +1,30 @@
+<div class="emp-list-div">
+    <table>    
+        <thead>
+            <tr>
+            <th>Name</th>&nbsp;&nbsp;     
+            <th>Email</th>&nbsp;&nbsp;
+            <th>Department</th>&nbsp;&nbsp;
+            <th>Image</th>
+            </tr>
+                
+        </thead>
+        
+       <tbody *ngFor="let emplloy of emplloy">
+           
+           <tr>
+            <td>{{emplloy.name}}</td>&nbsp;
+        <td>{{emplloy.email}}</td>&nbsp;
+        <td>{{emplloy.department}}</td>&nbsp;
+        <td>{{emplloy.imagePath}}</td>
+           </tr>
+        
+       </tbody>    
+</table>
+</div>
+
+
+
+  
+  
+  

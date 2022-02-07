@@ -1,0 +1,34 @@
+<div class="example-button-row">
+  <button mat-raised-button class="side-btn" 
+  [routerLink]="['./emplloy']" 
+  routerLinkActive="active"
+  >
+  Emplloy Form
+</button>
+&nbsp;&nbsp;
+  <button mat-raised-button class="side-btn">Student Form</button>
+</div>
+
+<div class="emp-form-div">
+ <h2><p>
+  You can select <b>Emplloy Form</b> for Adding Emplloys.
+ </p>
+ 
+ <b><i>Or</i></b>
+ <br>
+ <p>
+  Select <b>Student Form</b> for Adding Students.
+ </p>
+ </h2>
+</div>
+
+<div>
+  <router-outlet ></router-outlet>
+</div>
+  
+
+<!-- <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" routerLink="../emplloy" routerLinkActivet="active">Emplloy</a>
+    </li>    
+  </ul> -->
