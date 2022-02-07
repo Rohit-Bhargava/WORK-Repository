@@ -7,6 +7,7 @@ import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatCardModule} from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
@@ -22,6 +23,7 @@ const MaterialComponent = [
   MatAutocompleteModule,
   MatBadgeModule,
   MatBottomSheetModule,
+  MatProgressSpinnerModule,
   MatButtonToggleModule,
   MatCardModule,
   MatCheckboxModule,

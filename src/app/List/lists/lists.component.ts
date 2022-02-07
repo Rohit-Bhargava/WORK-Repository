@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Employee } from 'src/app/emplloy';
 
 @Component({
   selector: 'app-lists',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListsComponent implements OnInit {
 
-  constructor() { }
+  isLoading = false;
 
-  ngOnInit(): void {
+  employees: Employee[] = [];
+
+  constructor(){}
+
+ 
+
+  ngOnInit() {
+    this.isLoading = true
   }
 
 }

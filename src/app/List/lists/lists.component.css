@@ -1,3 +1,31 @@
+table{
+    text-align: center;
+    width: 100%;
+    border: 2px solid rgb(255, 255, 255);
+}
+
+tr{
+    margin: 10px;
+    padding: 10px;
+   
+}
+td{
+    margin: 10px;
+    padding: 5px;
+    border: 2px solid rgb(255, 255, 255);
+}
+
+.emp-list-div{
+    margin-left: 15px;
+    margin-right: 20px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 4px solid rgb(255, 255, 255);
+   
+  }
+
 .example-button-row{
     margin-left: 15px;
     margin-right: 20px;
@@ -8,3 +36,12 @@
     border-radius: 10px;
     border: 4px solid rgb(255, 255, 255);
 }
+
+.image-preview {
+    height: 5rem;
+    margin: 1rem 0;
+  }
+  
+  .image-preview img {
+    height: 100%;
+  }

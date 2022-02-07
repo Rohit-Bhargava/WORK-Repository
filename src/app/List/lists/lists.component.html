@@ -1,13 +1,41 @@
 <div class="example-button-row">
-    <button mat-raised-button class="side-btn" 
-    [routerLink]="['./emplloy-list']" 
-    routerLinkActive="active">
+    <button mat-flat-button class="side-btn">
+    <!-- [routerLink]="['./emplloy-list']" 
+    routerLinkActive="active"> -->
     Emplloy List
   </button>
-  &nbsp;&nbsp;
-    <button mat-raised-button class="side-btn">Student List</button>
+  <!-- &nbsp;&nbsp;
+    <button mat-raised-button class="side-btn">Student List</button> -->
   </div>
-  <div>
+
+  <div class="emp-list-div">
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+    <table>    
+        <thead>
+            <tr>
+            <th>Name</th>&nbsp;&nbsp;     
+            <th>Email</th>&nbsp;&nbsp;
+            <th>Department</th>&nbsp;&nbsp;
+            <th>Image</th>
+            </tr>
+                
+        </thead>
+        
+       <tbody >
+           
+           <tr *ngFor="let employee of employees">
+            <td>{{employee.name}}</td>&nbsp;
+        <td>{{employee.email}}</td>&nbsp;
+        <td>{{employee.department}}</td>&nbsp;
+        <td><img mat-card-image class="image-preview" [src]="employee.imagePath" [alt]="employee.name"></td>
+           </tr>
+        
+       </tbody>    
+</table>
+</div>
+
+
+  <!-- <div>
     <router-outlet></router-outlet>
     
-  </div>
+  </div> -->

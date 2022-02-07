@@ -1,4 +1,5 @@
-export interface Emplloy{
+export interface Employee{
+   id: string
    name: string
    email: string
    department: string
