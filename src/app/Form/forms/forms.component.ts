@@ -20,7 +20,7 @@ export class FormsComponent implements OnInit {
   imagePreview: string;
   form: FormGroup;
   private mode = "create";
-  private employeeId: string;
+  private employeeId: any;
 
   constructor(public service: EmplloyService, public route: ActivatedRoute) { }
 
@@ -45,11 +45,12 @@ export class FormsComponent implements OnInit {
         this.mode = "edit";
         this.employeeId = paramMap.get(employeeId);
         this.isLoading = true;
-        this.service.getEmployee(this.employeeId).subscribe(employeeData=>{
+        this.service.getEmployees(this.employeeId).subscribe(employeeData=>{
           this.employee = {
             id: employeeData._id,
             name: employeeData.name,
             department: employeeData.department,
+            email: employeeData.email,
             imagePath: employeeData.imagePath
           };
           this.form.setValue({
@@ -96,12 +97,8 @@ export class FormsComponent implements OnInit {
         this.form.value.department,
         this.form.value.email,
         this.form.value.image
-      )
+      );
     }
+    this.form.reset();
     }
-
-    onReset(){
-      this.form.reset();
-    }
-
 }

@@ -10,7 +10,8 @@ const routes: Routes = [
   
   // {path:'', redirectTo:'/form', pathMatch:'full'},
   {path: 'verfiy', component: VerfiyComponent},  
-    {path: 'form', component:FormsComponent},
+   {path: 'form', component:FormsComponent},
+    {path: 'edit/:employeeId', component:FormsComponent},
   {path: 'list', component: ListsComponent},
   {path: '**', redirectTo:'verfiy', pathMatch: 'full'},
 ];

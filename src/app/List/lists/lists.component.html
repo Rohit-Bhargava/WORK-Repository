@@ -17,6 +17,8 @@
             <th>Email</th>&nbsp;&nbsp;
             <th>Department</th>&nbsp;&nbsp;
             <th>Image</th>
+            <th>Edit</th>
+            <th>Delete</th>
             </tr>
                 
         </thead>
@@ -28,7 +30,9 @@
         <td>{{employee.email}}</td>&nbsp;
         <td>{{employee.department}}</td>&nbsp;
         <td><img mat-card-image class="image-preview" [src]="employee.imagePath" [alt]="employee.name"></td>
-           </tr>
+            <td><button mat-raised-button color="primary" class="side-btn" [routerLink]="['/edit', employee.id]">Edit</button></td>
+            <td><button mat-raised-button color="warn" class="side-btn" (click)="onDelete(employee.id)">Delete</button></td>
+      </tr>
         
        </tbody>    
 </table>
