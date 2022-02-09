@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Employee } from 'src/app/emplloy';
-
+// import { Subscription } from 'rxjs';
 import { EmplloyService } from 'src/app/shared/emplloy.service';
 import { mimeType } from './mime-type.validator';
 
@@ -12,19 +12,21 @@ import { mimeType } from './mime-type.validator';
   styleUrls: ['./forms.component.css'] //'../styles.css']
 })
 export class FormsComponent implements OnInit {
+  
   enteredName = "";
   enteredDepartment = "";
   enteredEmail = "";
-  employee: Employee;
+  employee: Employee | any;
   isLoading = false;
-  imagePreview: string;
-  form: FormGroup;
+  imagePreview: any;
+  
   private mode = "create";
   private employeeId: any;
+  form: FormGroup | any;
 
   constructor(public service: EmplloyService, public route: ActivatedRoute) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.form = new FormGroup({
       name: new FormControl(null, {
         validators: [Validators.required, Validators.minLength(3)]
@@ -43,15 +45,16 @@ export class FormsComponent implements OnInit {
     this.route.paramMap.subscribe((paramMap: ParamMap)=>{
       if (paramMap.has("employeeId")){
         this.mode = "edit";
-        this.employeeId = paramMap.get(employeeId);
+        this.employeeId = paramMap.get("employeeId");
         this.isLoading = true;
-        this.service.getEmployees(this.employeeId).subscribe(employeeData=>{
+        this.service.getEmployee().subscribe(employeeData=>{
+          this.isLoading = false;
           this.employee = {
             id: employeeData._id,
             name: employeeData.name,
             department: employeeData.department,
             email: employeeData.email,
-            imagePath: employeeData.imagePath
+            imagePath: employeeData.imagePath,
           };
           this.form.setValue({
             name: this.employee.name,
@@ -67,8 +70,8 @@ export class FormsComponent implements OnInit {
     });
   }
 
-  onImagePicked(event: Event) {
-    const file = (event?.target as HTMLInputElement).files[0];
+  onImagePicked(event: any){
+    const file = event.target.files[0];
     this.form.patchValue({ image: file });
     this.form.get("image")?.updateValueAndValidity();
     const reader = new FileReader();
@@ -77,9 +80,10 @@ export class FormsComponent implements OnInit {
     };
     reader.readAsDataURL(file);
   }
+    
 
   onSave(){
-    if(this.form.invalid){
+    if (this.form.invalid){
       return;
     }
     this.isLoading =true;

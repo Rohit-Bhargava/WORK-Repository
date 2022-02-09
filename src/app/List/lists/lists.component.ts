@@ -13,7 +13,7 @@ export class ListsComponent implements OnInit {
   isLoading = false;
 
   employees: Employee[] = [];
-  private employeeSub: Subscription;
+  private employeeSub: Subscription | any;
 
   constructor(public service: EmplloyService){}
 

@@ -2,7 +2,7 @@ const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-
+const cors = require("cors");
 const employeesRoutes = require("./routes/employees");
 
 const app = express();
@@ -19,6 +19,7 @@ mongoose
     console.log("Connection failed!");
   });
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/images", express.static(path.join("backend/images")));

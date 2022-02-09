@@ -9,78 +9,26 @@
 
 <div class="emp-form-div">
   <mat-spinner *ngIf="isLoading"></mat-spinner>
-  <form class="example-form" [formGroup]="form" (submit)="onSave()" *ngIf="!isLoading">
+  <form class="example-form" [formGroup]="form" (ngSubmit)="onSave()" *ngIf="!isLoading">
     <mat-form-field class="example-full-width">
       <input matInput type="text" formControlName="name" placeholder="name">
-      <mat-error *ngIf="form.get('name').invalid">Please enter a name.</mat-error>
+      <mat-error *ngIf="form.get('name')">Please enter a name.</mat-error>
     </mat-form-field>
     <mat-form-field class="example-full-width">
       <input matInput type="text" formControlName="department" placeholder="department">
-      <mat-error *ngIf="form.get('department').invalid">Please enter a department name.</mat-error>
+      <mat-error *ngIf="form.get('department')">Please enter a department name.</mat-error>
     </mat-form-field>
     <mat-form-field class="example-full-width">
       <input matInput type="email" formControlName="email" placeholder="email">
-      <mat-error *ngIf="form.get('email').invalid">Please enter email.</mat-error>
+      <mat-error *ngIf="form.get('email')">Please enter email.</mat-error>
     </mat-form-field>
     <div>
       <button mat-stroked-button type="button" (click)="filePicker.click()">Employee Image</button>
-      <input type="file" #filePicker (change)="onImagePicked($event)">
+      <input type="file"  #filePicker accept="image/*" (change)="onImagePicked($event)">
     </div>
     <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image')">
       <img [src]="imagePreview" [alt]="form.value.name">
     </div>
-    <button mat-raised-button class="side-btn" (click)="onSave()">Submit</button>
+    <button mat-raised-button class="side-btn" type="submit">Submit</button>
   </form>
 </div>
-
-
-
-
-
-
-<!-- <table class="example-full-width" cellspacing="0"><tr>
-  <td><mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Full Name of Emplloy</mat-label>
-    <input matInput>
-  </mat-form-field></td>
-</tr>
-<tr>
-    <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Department</mat-label>
-        <input matInput>
-      </mat-form-field></td>
-</tr>
-<tr>
-    <td>
-        <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Email</mat-label>
-        <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com">
-        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-          Please enter a valid email address
-        </mat-error>
-        <mat-error *ngIf="emailFormControl.hasError('required')">
-          Email is <strong>required</strong>
-        </mat-error>
-        </mat-form-field>
-    </td>
-</tr>
-<tr>
-  <td>
-    <button mat-stroked-button type="button" (click)="filePicker.click()">Pick Image</button>
-    <input type="file" #filePicker >
-  </td>
-</tr>
-<tr>
-  <td>
-    <div class="image-preview" >
-      <img [src]="imagePreview" [alt]="form">
-    </div>
-  </td>
-</tr>
-<tr>
-  <button mat-raised-button class="side-btn" (click)="onSave()">Submit</button>&nbsp;
-  <button mat-raised-button class="side-btn" (click)="onReset()">Cancel</button>
-  
-</tr>
-
-</table>  -->

@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
+import { identifierName } from '@angular/compiler';
 import { Injectable, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 
 import { map, Observable, observable, Subject } from 'rxjs';
-import { Transform } from 'stream';
+// import { Transform } from 'stream';
 import { Employee } from '../emplloy';
 
 
@@ -13,23 +14,27 @@ import { Employee } from '../emplloy';
   providedIn: 'root'
 })
 export class EmplloyService {
+  remove(employeeId: string) {
+    throw new Error('Method not implemented.');
+  }
+
  private employee: Employee[]=[];
  private employeeUpdated = new Subject<Employee[]>();
 
  constructor(private http: HttpClient, private router: Router) { }
 
-  getEmployees(){
+  getEmployees() {
     this.http
-    .get<{message: string; employee: any}>("http://localhost:3000/api/employees")
+    .get<{message: string; employees: any}>("http://localhost:3000/api/employees")
     .pipe(
       map(employeeData => {
-        return employeeData.employee.map(employee=>{
+        return employeeData.employees.map((employees: { name: any; department: any; email: any; _id: any; imagePath: any; })=>{
           return {
-            name: employee.name,
-            department: employee.department,
-            email: employee.email,
-            id: employee._id,
-            imagePath: employee.imagePath
+            name: employees.name,
+            department: employees.department,
+            email: employees.email,
+            id: employees._id,
+            imagePath: employees.imagePath
           };
         });
       })
@@ -44,9 +49,9 @@ export class EmplloyService {
     return this.employeeUpdated.asObservable();
   }
 
-  getPost(){
+  getEmployee(){
     return this.http.get<{_id: string, name: string, department: string, email: string, imagePath: String}>(
-      "http://localhost:3000/api/employees" + id
+      "http://localhost:3000/api/employees"
     );
   }
 
@@ -57,7 +62,7 @@ export class EmplloyService {
     employeeData.append("email", email);
     employeeData.append("image", image, name);
     this.http.post<{message: string; employee: Employee}>(
-      "http://localhost:3000/api/employees",
+      "http://localhost:3000/api/employees" + "id",
       employeeData
     )
     .subscribe(responseData => {
