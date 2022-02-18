@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { FormsComponent } from './Form/forms/forms.component';
+import { FormsComponent } from './forms/forms.component';
 
-import { ListsComponent } from './List/lists/lists.component';
+import { ListsComponent } from './lists/lists.component';
 import { VerfiyComponent } from './verfiy/verfiy.component';
 
 const routes: Routes = [

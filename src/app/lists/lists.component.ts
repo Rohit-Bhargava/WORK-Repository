@@ -3,12 +3,13 @@ import { Subscription } from 'rxjs';
 import { Employee } from 'src/app/emplloy';
 import { EmplloyService } from 'src/app/shared/emplloy.service';
 
+
 @Component({
   selector: 'app-lists',
   templateUrl: './lists.component.html',
   styleUrls: ['./lists.component.css']
 })
-export class ListsComponent implements OnInit {
+export class ListsComponent implements OnInit, OnDestroy {
 
   isLoading = false;
 

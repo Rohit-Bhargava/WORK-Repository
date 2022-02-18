@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { identifierName } from '@angular/compiler';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+
 import { Injectable, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -14,12 +14,10 @@ import { Employee } from '../emplloy';
   providedIn: 'root'
 })
 export class EmplloyService {
-  remove(employeeId: string) {
-    throw new Error('Method not implemented.');
-  }
+ 
 
- private employee: Employee[]=[];
- private employeeUpdated = new Subject<Employee[]>();
+ private employees: Employee[]=[];
+ private employeesUpdated = new Subject<Employee[]>();
 
  constructor(private http: HttpClient, private router: Router) { }
 
@@ -39,14 +37,14 @@ export class EmplloyService {
         });
       })
     )
-    .subscribe(transformedEmployee =>{
-      this.employee = transformedEmployee;
-      this.employeeUpdated.next([...this.employee]);
+    .subscribe(transformEmployees =>{
+      this.employees = transformEmployees;
+      this.employeesUpdated.next([...this.employees]);
     });
   }
 
   getEmployeeUpdateListener(){
-    return this.employeeUpdated.asObservable();
+    return this.employeesUpdated.asObservable();
   }
 
   getEmployee(){
@@ -62,7 +60,7 @@ export class EmplloyService {
     employeeData.append("email", email);
     employeeData.append("image", image, name);
     this.http.post<{message: string; employee: Employee}>(
-      "http://localhost:3000/api/employees" + "id",
+      "http://localhost:3000/api/employees",
       employeeData
     )
     .subscribe(responseData => {
@@ -73,8 +71,8 @@ export class EmplloyService {
         email: email,
         imagePath: responseData.employee.imagePath
       };
-      this.employee.push(employee);
-      this.employeeUpdated.next([...this.employee]);
+      this.employees.push(employee);
+      this.employeesUpdated.next([...this.employees]);
       this.router.navigate(["/"]);
     });
   }
@@ -100,28 +98,28 @@ export class EmplloyService {
     this.http.put("http://localhost:3000/api/employees/" + id, employeeData)
     .subscribe(response => {
       
-        const updatedEmployee = [...this.employee];
-        const oldEmployeeIndex = updatedEmployee.findIndex(e => e.id === id);
-        const employee: Employee ={
+        const updatedEmployees = [...this.employees];
+        const oldEmployeeIndex = updatedEmployees.findIndex(e => e.id === id);
+        const employee: Employee = {
           id: id,
           name: name,
           department: department,
           email: email,
           imagePath: ""
         };
-        updatedEmployee[oldEmployeeIndex] = employee;
-        this.employee = updatedEmployee;
-        this.employeeUpdated.next([...this.employee]);
+        updatedEmployees[oldEmployeeIndex] = employee;
+        this.employees = updatedEmployees;
+        this.employeesUpdated.next([...this.employees]);
         this.router.navigate(["/"]);
     } );
   }
 
   deleteEmployee(employeeId: string){
-    this.http.delete("http://localhost:3000/api/employees" + employeeId)
+    this.http.delete("http://localhost:3000/api/employees/" + employeeId)
     .subscribe(()=>{
-      const updatedEmployee = this.employee.filter(employee => employee.id !== employeeId );
-      this.employee = updatedEmployee;
-      this.employeeUpdated.next([...this.employee]);
+      const updatedEmployees = this.employees.filter(employee => employee.id !== employeeId );
+      this.employees = updatedEmployees;
+      this.employeesUpdated.next([...this.employees]);
     });
   }
 }

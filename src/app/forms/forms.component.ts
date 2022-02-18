@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { map } from 'rxjs';
 import { Employee } from 'src/app/emplloy';
 // import { Subscription } from 'rxjs';
 import { EmplloyService } from 'src/app/shared/emplloy.service';
@@ -28,16 +29,16 @@ export class FormsComponent implements OnInit {
 
   ngOnInit() {
     this.form = new FormGroup({
-      name: new FormControl(null, {
+      name: new FormControl('',{
         validators: [Validators.required, Validators.minLength(3)]
       }),
-      department: new FormControl(null, {
+      department: new FormControl('',{
         validators: [Validators.required, Validators.minLength(2)]
       }),
-      email: new FormControl(null, {
+      email: new FormControl('',{
         validators: [Validators.required, Validators.email]
       }),
-      image: new FormControl(null, {
+      image: new FormControl('',{
         validators: [Validators.required],
         asyncValidators: [mimeType]
       })
@@ -56,7 +57,7 @@ export class FormsComponent implements OnInit {
             email: employeeData.email,
             imagePath: employeeData.imagePath,
           };
-          this.form.setValue({
+          this.form.patchValue({
             name: this.employee.name,
             department: this.employee.department,
             email: this.employee.email,
@@ -103,6 +104,6 @@ export class FormsComponent implements OnInit {
         this.form.value.image
       );
     }
-    this.form.reset();
+      this.form.reset();
     }
 }

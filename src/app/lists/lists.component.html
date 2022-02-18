@@ -13,9 +13,10 @@
     <table>    
         <thead>
             <tr>
-            <th>Name</th>&nbsp;&nbsp;     
+            <th>Name</th>&nbsp;&nbsp;
+            <th>Department</th>&nbsp;&nbsp;     
             <th>Email</th>&nbsp;&nbsp;
-            <th>Department</th>&nbsp;&nbsp;
+            
             <th>Image</th>
             <th>Edit</th>
             <th>Delete</th>
@@ -27,10 +28,11 @@
            
            <tr *ngFor="let employee of employees">
             <td>{{employee.name}}</td>&nbsp;
+            <td>{{employee.department}}</td>&nbsp;
         <td>{{employee.email}}</td>&nbsp;
-        <td>{{employee.department}}</td>&nbsp;
+        
         <td><img mat-card-image class="image-preview" [src]="employee.imagePath" [alt]="employee.name"></td>
-            <td><button mat-raised-button color="primary" class="side-btn" [routerLink]="['/edit', employee.id]">Edit</button></td>
+            <td><a mat-raised-button color="primary" class="side-btn" [routerLink]="['/edit', (employee.id)]">Edit</a></td>
             <td><button mat-raised-button color="warn" class="side-btn" (click)="onDelete(employee.id)">Delete</button></td>
       </tr>
         

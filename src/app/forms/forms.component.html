@@ -9,17 +9,17 @@
 
 <div class="emp-form-div">
   <mat-spinner *ngIf="isLoading"></mat-spinner>
-  <form class="example-form" [formGroup]="form" (ngSubmit)="onSave()" *ngIf="!isLoading">
+  <form class="example-form" [formGroup]="form" (submit)="onSave()" >
     <mat-form-field class="example-full-width">
-      <input matInput type="text" formControlName="name" placeholder="name">
+      <input matInput type="text" formControlName="name" placeholder="name" #name>
       <mat-error *ngIf="form.get('name')">Please enter a name.</mat-error>
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input matInput type="text" formControlName="department" placeholder="department">
+      <input matInput type="text" formControlName="department" placeholder="department" #department>
       <mat-error *ngIf="form.get('department')">Please enter a department name.</mat-error>
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input matInput type="email" formControlName="email" placeholder="email">
+      <input matInput type="email" formControlName="email" placeholder="email" #email>
       <mat-error *ngIf="form.get('email')">Please enter email.</mat-error>
     </mat-form-field>
     <div>

@@ -97,11 +97,13 @@ const MIME_TYPE_MAP = {
     });
   });
 
-  router.delete("/:id", (req, res, next) => {
-    Employee.deleteOne({ _id: req.params.id }).then(result => {
+  router.delete('/:id', (req, res) => {
+    Employee.findByIdAndRemove(req.params.id).then(result => {
       console.log(result);
       res.status(200).json({ message: "Employee deleted!" });
-    });
+    }).catch(
+      console.log('error!')
+    )
   });
 
-  module.exports = router
+  module.exports = router;
