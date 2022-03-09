@@ -1,0 +1,50 @@
+<button class="btn btn-block btn-primary" id="btnAdd" routerLink="/home" routerLinkActive="activet">Add Details</button><br>
+<div class="form">
+   
+    <label for="text"><h3><u>Submited Form's Details </u></h3></label>
+    <br><br>
+        
+        
+        <div class="card" style="width: 18rem;">
+            <div class="card-header">
+              <h4>Name: &nbsp;</h4><br>
+                <u>{{userDetails?.name}}</u>
+            </div>
+            </div>
+            <!-- <div class="container overflow-hidden" *ngFor="let patient of patients">
+              <ul>
+                <li> Date: {{patients.dot}}</li>
+                <li> Fever: {{patients.fever}}</li>
+                <li>Gender: {{patients.gender}}</li>
+              </ul>
+               -->
+               <div class="container" *ngIf="patients.length > 0">
+                <div class="mat-elevation-z8">
+                    <table mat-table dataSource="dataSource">
+            
+                        <ng-container matColumnDef="dot">
+                            <th mat-header-cell *matHeaderCellDef> Date </th>
+                            <td mat-cell *matCellDef="let element"> {{element.dot}} </td>
+                        </ng-container>
+            
+                        <ng-container matColumnDef="gender">
+                            <th mat-header-cell *matHeaderCellDef> Gender </th>
+                            <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+                        </ng-container>
+            
+                        <ng-container matColumnDef="fever">
+                            <th mat-header-cell *matHeaderCellDef> Fever </th>
+                            <td mat-cell *matCellDef="let element"> {{element.fever}} </td>
+                        </ng-container>
+<!--             
+                        <ng-container matColumnDef="action">
+                            <th mat-header-cell *matHeaderCellDef> Action </th>
+                            <td mat-cell *matCellDef="let element; let i = index;"> -->
+                               
+                                <!-- <button mat-raised-button color="accent" (click)="deletePatient(i, element)">Delete</button> -->
+                            <!-- </td>
+                        </ng-container> -->
+            
+                        <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> -->
+                        <!-- <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
+                    </table>

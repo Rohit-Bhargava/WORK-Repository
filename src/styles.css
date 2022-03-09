@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+.form{
+    text-align: center;
+    /* display: flex; */
+    /* margin-top: 5px; */
+    margin-right: 110px;
+    /* margin-bottom: 25px; */
+    margin-left: 150px;
+    padding: 8px;
+    /* border: solid 2px white; */
+    /* border-radius: 4px; */
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

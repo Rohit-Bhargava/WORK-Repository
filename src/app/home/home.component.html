@@ -1,0 +1,80 @@
+<div class="form">
+    <div class="divNmae">
+        <label class="labelCls" for="name"><u>Welcome &nbsp;&nbsp;{{userDetails?.name}}</u></label>
+        <br>
+        <!-- <button (click)="showMsg()">Message</button> -->
+        <button class="btn btn-block" routerLink="/detail" routerLinkActive="activet">details</button>
+        <hr />
+        <form [formGroup]="form" acti method="POST" target="embedFrame" (submit)="submitForm();">
+        
+            <div class="form-group">
+                <div class="input-group" >
+               <input type="date" id="date" formControlName="dot" placeholder="Chose date.." (dateChange)="formatDate($event)">
+                </div>
+            </div>
+            <hr>
+            <div class="input-group mb-3">
+                <label class="input-group-text" value="selected" for="inputGroupSelect01">Fever</label>
+                <select class="form-select" formControleName="fever" id="inputGroupSelect01">
+                    <option [value]="feverArray" *ngFor="let feverArray of FeverArray"  class="value1">{{feverArray}}</option>
+                    
+                </select>
+            </div>
+            <hr>
+            <!-- <div style="text-align: center;">
+                <label for="text">Food</label>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-text">
+                    <input class="form-check-input mt-0" type="checkbox" value="Coffee"
+                        aria-label="Checkbox for following text input" formControlName="food">
+                </div>&nbsp;
+                <label for="text">Coffee</label>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-text">
+                    <input class="form-check-input mt-0" type="checkbox" value="Tea"
+                        aria-label="Checkbox for following text input" formControlNmae="food">
+                </div>&nbsp;
+                <label for="text">Tea</label>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-text">
+                    <input class="form-check-input mt-0" type="checkbox" value="Choco Bar"
+                        aria-label="Checkbox for following text input" formControlNmae="food">
+                </div>&nbsp;
+                <label for="text">Choco Bar</label>
+            </div> -->
+            <hr>
+            <div style="text-align: center;">
+                <label for="text">Select Gender</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" formControlNmae="gender">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Male
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked formControlNmae="gender">
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Female
+                </label>
+            </div>
+            <div class="form-check">
+
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked formControlNmae="gender">
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Transhgender
+                </label>
+            </div>
+            <input class="btn btn-block btn-primary" type="submit">
+        </form>
+        
+        <hr/>
+        <!-- <div>
+            <button class="btn btn-block btn-primary" type="submit">Save</button>&nbsp;  
+        </div> -->
+        </div>
+
+</div>

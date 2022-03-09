@@ -1,0 +1,19 @@
+.homeDiv{
+    margin: 25px;
+    padding: 2px;
+    border: solid 2px whitesmoke;
+    border-radius: 4px;
+}
+button{
+    margin-top: 2px;
+    margin-left: 2px;
+    flex: auto 1px;
+}
+.div1{
+text-align: center;
+}
+.outletDiv{
+    border: solid 2px whitesmoke;
+    border-radius: 4px;
+    margin: 4px;
+}

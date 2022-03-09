@@ -1,0 +1,18 @@
+.labelCls{
+    text-align: center;
+    margin-top: 25px;
+    margin-right: 25px;
+    margin-bottom: 25px;
+    margin-left: 25px;
+}
+
+
+.input-group-text{
+    color: red;
+}
+.value1{
+    color: red;
+}
+.value2{
+    color: green;
+}
